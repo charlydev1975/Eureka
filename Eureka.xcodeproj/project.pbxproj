@@ -14,8 +14,6 @@
 		0E6EAB3D28DB36E40065E478 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6EAB3C28DB36E40065E478 /* Persistence.swift */; };
 		0E6EAB4028DB36E40065E478 /* Eureka.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0E6EAB3E28DB36E40065E478 /* Eureka.xcdatamodeld */; };
 		0E6EAB4A28DB36E40065E478 /* EurekaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6EAB4928DB36E40065E478 /* EurekaTests.swift */; };
-		0E6EAB5428DB36E40065E478 /* EurekaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6EAB5328DB36E40065E478 /* EurekaUITests.swift */; };
-		0E6EAB5628DB36E40065E478 /* EurekaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6EAB5528DB36E40065E478 /* EurekaUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,8 +44,6 @@
 		0E6EAB4528DB36E40065E478 /* EurekaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EurekaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E6EAB4928DB36E40065E478 /* EurekaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EurekaTests.swift; sourceTree = "<group>"; };
 		0E6EAB4F28DB36E40065E478 /* EurekaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EurekaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0E6EAB5328DB36E40065E478 /* EurekaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EurekaUITests.swift; sourceTree = "<group>"; };
-		0E6EAB5528DB36E40065E478 /* EurekaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EurekaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +76,6 @@
 			children = (
 				0E6EAB3228DB36E30065E478 /* Eureka */,
 				0E6EAB4828DB36E40065E478 /* EurekaTests */,
-				0E6EAB5228DB36E40065E478 /* EurekaUITests */,
 				0E6EAB3128DB36E30065E478 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -122,15 +117,6 @@
 				0E6EAB4928DB36E40065E478 /* EurekaTests.swift */,
 			);
 			path = EurekaTests;
-			sourceTree = "<group>";
-		};
-		0E6EAB5228DB36E40065E478 /* EurekaUITests */ = {
-			isa = PBXGroup;
-			children = (
-				0E6EAB5328DB36E40065E478 /* EurekaUITests.swift */,
-				0E6EAB5528DB36E40065E478 /* EurekaUITestsLaunchTests.swift */,
-			);
-			path = EurekaUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,8 +268,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E6EAB5428DB36E40065E478 /* EurekaUITests.swift in Sources */,
-				0E6EAB5628DB36E40065E478 /* EurekaUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
