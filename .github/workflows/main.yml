@@ -1,0 +1,29 @@
+name: CI
+
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+    
+jobs:
+  build:
+    runs-on: macOS-latest
+    steps:
+      - name: Test
+        uses: actions/checkout@v3
+      - name: Check Xcode
+        run:  ls /Applications | grep Xcode
+      - name: Force Xcode
+        run:  sudo xcode-select -switch /Applications/Xcode_13.2.1.app
+      - name: Setup Simulator
+        uses: futureware-tech/simulator-action@v1
+        with:
+          model: 'iPhone 11'
+      - name: Show Build SDK
+        run:  xcodebuild -project Eureka.xcodeproj -scheme Eureka -showsdks
+      - name: Show availlable destinations
+        run:  xcodebuild -project Eureka.xcodeproj -scheme Eureka -showdestinations
+      - name: Clean Build and Test
+        run:  xcodebuild clean test -project Eureka.xcodeproj -scheme Eureka -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11,OS=15.2' -enableCodeCoverage YES | xcpretty && exit ${PIPESTATUS[0]}
