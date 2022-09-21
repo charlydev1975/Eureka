@@ -16,7 +16,7 @@ jobs:
       - name: Check Xcode
         run:  ls /Applications | grep Xcode
       - name: Force Xcode
-        run:  sudo xcode-select -switch /Applications/Xcode_13.2.1.app
+        run:  sudo xcode-select -switch /Applications/Xcode_13.3.app
       - name: Setup Simulator
         uses: futureware-tech/simulator-action@v1
         with:
