@@ -12,22 +12,27 @@ struct ContentView: View {
     
     @State var photos = [Photo]()
     @State var counter = 0
+    @State private var isPresented = false
     
     var body: some View {
-        VStack {
-            ScrollView {
-                LazyVGrid(columns: [GridItem(), GridItem(), GridItem()]) {
-                    ForEach(photos) { _ in
-                        PhotoView()
+        NavigationView {
+            VStack {
+                ScrollView {
+                    LazyVGrid(columns: [GridItem(), GridItem(), GridItem()]) {
+                        ForEach(photos) { _ in
+                            NavigationLink(destination:PhotoView(), isActive: $isPresented) {
+                                PhotoView()
+                            }
+                        }
                     }
+                    .padding()
                 }
-                .padding()
-            }
-            Spacer()
-            Button("Take picture") {
-                let photo = Photo(id: self.counter)
-                photos.append(photo)
-                counter += 1
+                Spacer()
+                Button("Take picture") {
+                    let photo = Photo(id: self.counter)
+                    photos.append(photo)
+                    counter += 1
+                }
             }
         }
     }
