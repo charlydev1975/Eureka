@@ -13,7 +13,11 @@
 		0E6EAB3B28DB36E40065E478 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E6EAB3A28DB36E40065E478 /* Preview Assets.xcassets */; };
 		0E6EAB3D28DB36E40065E478 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6EAB3C28DB36E40065E478 /* Persistence.swift */; };
 		0E6EAB4028DB36E40065E478 /* Eureka.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0E6EAB3E28DB36E40065E478 /* Eureka.xcdatamodeld */; };
-		0E6EAB4A28DB36E40065E478 /* EurekaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6EAB4928DB36E40065E478 /* EurekaTests.swift */; };
+		0E6EAB4A28DB36E40065E478 /* EUPhotosViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6EAB4928DB36E40065E478 /* EUPhotosViewModelTests.swift */; };
+		0EE14CAD28DE0E760099D127 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE14CAC28DE0E760099D127 /* Photo.swift */; };
+		0EE14CAF28DE12B70099D127 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE14CAE28DE12B70099D127 /* PhotoView.swift */; };
+		0EE14CB128DE144E0099D127 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE14CB028DE144E0099D127 /* CameraView.swift */; };
+		0EE14CB328DE15340099D127 /* EUPhotosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE14CB228DE15340099D127 /* EUPhotosViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,8 +46,12 @@
 		0E6EAB3C28DB36E40065E478 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		0E6EAB3F28DB36E40065E478 /* Eureka.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Eureka.xcdatamodel; sourceTree = "<group>"; };
 		0E6EAB4528DB36E40065E478 /* EurekaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EurekaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0E6EAB4928DB36E40065E478 /* EurekaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EurekaTests.swift; sourceTree = "<group>"; };
+		0E6EAB4928DB36E40065E478 /* EUPhotosViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EUPhotosViewModelTests.swift; sourceTree = "<group>"; };
 		0E6EAB4F28DB36E40065E478 /* EurekaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EurekaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EE14CAC28DE0E760099D127 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		0EE14CAE28DE12B70099D127 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
+		0EE14CB028DE144E0099D127 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		0EE14CB228DE15340099D127 /* EUPhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EUPhotosViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +103,12 @@
 			children = (
 				0E6EAB3328DB36E30065E478 /* EurekaApp.swift */,
 				0E6EAB3528DB36E30065E478 /* ContentView.swift */,
+				0EE14CB228DE15340099D127 /* EUPhotosViewModel.swift */,
 				0E6EAB3728DB36E40065E478 /* Assets.xcassets */,
 				0E6EAB3C28DB36E40065E478 /* Persistence.swift */,
+				0EE14CAC28DE0E760099D127 /* Photo.swift */,
+				0EE14CAE28DE12B70099D127 /* PhotoView.swift */,
+				0EE14CB028DE144E0099D127 /* CameraView.swift */,
 				0E6EAB3E28DB36E40065E478 /* Eureka.xcdatamodeld */,
 				0E6EAB3928DB36E40065E478 /* Preview Content */,
 			);
@@ -114,7 +126,7 @@
 		0E6EAB4828DB36E40065E478 /* EurekaTests */ = {
 			isa = PBXGroup;
 			children = (
-				0E6EAB4928DB36E40065E478 /* EurekaTests.swift */,
+				0E6EAB4928DB36E40065E478 /* EUPhotosViewModelTests.swift */,
 			);
 			path = EurekaTests;
 			sourceTree = "<group>";
@@ -250,9 +262,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E6EAB4028DB36E40065E478 /* Eureka.xcdatamodeld in Sources */,
+				0EE14CB128DE144E0099D127 /* CameraView.swift in Sources */,
 				0E6EAB3D28DB36E40065E478 /* Persistence.swift in Sources */,
 				0E6EAB3628DB36E30065E478 /* ContentView.swift in Sources */,
+				0EE14CAF28DE12B70099D127 /* PhotoView.swift in Sources */,
+				0EE14CB328DE15340099D127 /* EUPhotosViewModel.swift in Sources */,
 				0E6EAB3428DB36E30065E478 /* EurekaApp.swift in Sources */,
+				0EE14CAD28DE0E760099D127 /* Photo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E6EAB4A28DB36E40065E478 /* EurekaTests.swift in Sources */,
+				0E6EAB4A28DB36E40065E478 /* EUPhotosViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,8 +425,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Eureka/Preview Content\"";
+				DEVELOPMENT_TEAM = 2JM5RQ28LQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "Camera used to take pictures";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -437,8 +455,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Eureka/Preview Content\"";
+				DEVELOPMENT_TEAM = 2JM5RQ28LQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "Camera used to take pictures";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

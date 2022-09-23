@@ -13,8 +13,8 @@ struct EurekaApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            let euPhotoViewModel = EUPhotosViewModel(inMemoryModel: false)
+            ContentView(euPhotosViewModel: euPhotoViewModel)
         }
     }
 }
