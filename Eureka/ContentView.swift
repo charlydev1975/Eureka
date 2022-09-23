@@ -8,61 +8,58 @@
 import SwiftUI
 import CoreData
 
+
 struct ContentView: View {
     
-    @State var photos = [Photo]()
-    @State var counter = 0
-    @State private var isPresented = false
+    @ObservedObject private var euPhotosViewModel:EUPhotosViewModel
     
+    @State private var isCameraPresented = false
+    @State private var isPhotoPresented = false
+    
+    init(euPhotosViewModel:EUPhotosViewModel) {
+        self.euPhotosViewModel = euPhotosViewModel
+    }
+
     var body: some View {
         NavigationView {
             VStack {
                 ScrollView {
                     LazyVGrid(columns: [GridItem(), GridItem(), GridItem()]) {
-                        ForEach(photos) { _ in
-                            NavigationLink(destination:PhotoView(), isActive: $isPresented) {
-                                PhotoView()
+                        ForEach(euPhotosViewModel.photos) { photo in
+                            NavigationLink(destination:PhotoView(photo: photo), isActive: $isPhotoPresented) {
+                                PhotoView(photo: photo)
                             }
                         }
                     }
                     .padding()
                 }
                 Spacer()
-                Button("Take picture") {
-                    let photo = Photo(id: self.counter)
-                    photos.append(photo)
-                    counter += 1
+                NavigationLink(destination:CameraView(handleImagePicked: {image in handleImagePickedFromCamera(image)}),
+                               isActive: $isCameraPresented) {
+                    Text("Take Picture")
                 }
             }
         }
     }
-}
-
-// View (we will initialize the view with the model that we nave
-struct PhotoView: View {
-    var body: some View {
-        RoundedRectangle(cornerRadius: 10)
-            .fill()
-            .foregroundColor(.blue)
-            .aspectRatio(4/3, contentMode: .fit)
-    }
-}
-
-// Model
-struct Photo:Identifiable {
     
-    let id:Int
-    var image:Data?
-    var latiture:String?
-    var longitude:String?
-    
-    init(id:Int) {
-        self.id = id
+    func handleImagePickedFromCamera(_ image:UIImage?) {
+        if let compressedImageData = image?.jpegData(compressionQuality: 1.0) {
+            
+            // TODO: currently we are not passing the latitude and longitude we should get it from core location and pass it in the future
+            euPhotosViewModel.addPhoto(withImageData: compressedImageData, latitude: "nothing", longitude: "nothings")
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        let viewModel = EUPhotosViewModel(inMemoryModel: true)
+        for _ in 0..<3 {
+            let imageData = UIImage(imageLiteralResourceName: "no-image-icon").pngData()!
+            let latitude = "a-latitude"
+            let longitude = "a-longitude"
+            viewModel.addPhoto(withImageData: imageData, latitude: latitude, longitude: longitude)
+        }
+        return ContentView(euPhotosViewModel: viewModel)
     }
 }
