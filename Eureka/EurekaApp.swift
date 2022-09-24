@@ -20,12 +20,15 @@ struct EurekaApp: App {
                     switch newValue {
                         case .active:
                             // start receiving gps data
+                            UserLocationManager.sharedManager.startGettingLocatoin()
                             break
                         case .background:
                             // stop gps data
+                            UserLocationManager.sharedManager.stopGettingLocation()
                             break
                         case .inactive:
                             // stop gps data
+                            UserLocationManager.sharedManager.startGettingLocatoin()
                             break
                         default:
                             break

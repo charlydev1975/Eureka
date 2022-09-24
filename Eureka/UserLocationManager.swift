@@ -6,22 +6,16 @@
 //
 
 import Foundation
-import MapKit
+import CoreLocation
 
-
-class UserLocationManager: NSObject, CLLocationManagerDelegate {
+class UserLocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
     
     static let sharedManager = UserLocationManager()
     
     private var locationManager = CLLocationManager()
     
-    var isCurrentLocationAvaillable = false
-    
-    var currentLocation: CLLocation? {
-        didSet {
-            self.isCurrentLocationAvaillable = true
-        }
-    }
+    @Published var isCurrentLocationAvaillable = false
+    @Published var currentLocation: CLLocation?
     
     private override init() {
         super.init()
@@ -42,7 +36,10 @@ class UserLocationManager: NSObject, CLLocationManagerDelegate {
     // MARK: CLLocationManagerDelegate
      func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
-            self.currentLocation = location
+            DispatchQueue.main.async {
+                self.isCurrentLocationAvaillable = true
+                self.currentLocation = location
+            }
         }
     }
 }

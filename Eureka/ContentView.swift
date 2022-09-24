@@ -12,6 +12,7 @@ import CoreData
 struct ContentView: View {
     
     @ObservedObject private var euPhotosViewModel:EUPhotosViewModel
+    @ObservedObject private var userLocationManager = UserLocationManager.sharedManager
     
     @State private var isCameraPresented = false
     @State private var isPhotoPresented = false
@@ -38,6 +39,7 @@ struct ContentView: View {
                                isActive: $isCameraPresented) {
                     Text("Take Picture")
                 }
+                            .disabled(!userLocationManager.isCurrentLocationAvaillable)
             }
         }
     }
