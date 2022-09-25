@@ -10,7 +10,6 @@ import SwiftUI
 @main
 struct EurekaApp: App {
     
-    let persistenceController = PersistenceController.shared
     @Environment(\.scenePhase) var scenePhase
     var body: some Scene {
         WindowGroup {
