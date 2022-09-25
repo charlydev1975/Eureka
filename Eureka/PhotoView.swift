@@ -13,7 +13,8 @@ struct PhotoView: View {
     let image:UIImage
     let inSinglePhotoMode:Bool
     let photo:Photo
-    // TODO: add a property to be initialized to modify the view regarding it is in full screen or if it is shown to be picked.
+    
+    
     init(photo: Photo, inSinglePhotoMode:Bool) {
         self.inSinglePhotoMode = inSinglePhotoMode
         self.photo = photo
