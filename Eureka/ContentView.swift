@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-import CoreData
-
 
 struct ContentView: View {
     
@@ -39,16 +37,16 @@ struct ContentView: View {
                                isActive: $isCameraPresented) {
                     Text("Take Picture")
                 }
-                            .disabled(!userLocationManager.isCurrentLocationAvaillable)
+                .disabled(!userLocationManager.isCurrentLocationAvaillable)
             }
         }
     }
     
     func handleImagePickedFromCamera(_ image:UIImage?) {
         if let compressedImageData = image?.jpegData(compressionQuality: 1.0) {
-            
-            // TODO: currently we are not passing the latitude and longitude we should get it from core location and pass it in the future
-            euPhotosViewModel.addPhoto(withImageData: compressedImageData, latitude: "nothing", longitude: "nothings")
+            if let tuple = userLocationManager.currentLocation {
+                euPhotosViewModel.addPhoto(withImageData: compressedImageData, latitude: tuple.latitude, longitude: tuple.longitude)
+            }
         }
     }
 }

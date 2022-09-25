@@ -15,7 +15,7 @@ class UserLocationManager: NSObject, CLLocationManagerDelegate, ObservableObject
     private var locationManager = CLLocationManager()
     
     @Published var isCurrentLocationAvaillable = false
-    @Published var currentLocation: CLLocation?
+    @Published var currentLocation: (latitude:String, longitude:String)?
     
     private override init() {
         super.init()
@@ -38,7 +38,9 @@ class UserLocationManager: NSObject, CLLocationManagerDelegate, ObservableObject
         if let location = locations.last {
             DispatchQueue.main.async {
                 self.isCurrentLocationAvaillable = true
-                self.currentLocation = location
+                let latitude = "\(location.coordinate.latitude)"
+                let longitude = "\(location.coordinate.longitude)"
+                self.currentLocation = (latitude, longitude)
             }
         }
     }
