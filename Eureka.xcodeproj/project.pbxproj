@@ -54,6 +54,7 @@
 		0EE14CAE28DE12B70099D127 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		0EE14CB028DE144E0099D127 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		0EE14CB228DE15340099D127 /* EUPhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EUPhotosViewModel.swift; sourceTree = "<group>"; };
+		0EEE4BDC28E0AC7D00BAC4DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,16 +104,13 @@
 		0E6EAB3228DB36E30065E478 /* Eureka */ = {
 			isa = PBXGroup;
 			children = (
+				0EEE4BDC28E0AC7D00BAC4DA /* Info.plist */,
 				0E6EAB3328DB36E30065E478 /* EurekaApp.swift */,
-				0E6EAB3528DB36E30065E478 /* ContentView.swift */,
-				0EE14CB228DE15340099D127 /* EUPhotosViewModel.swift */,
+				0EEE4BD928E0A71700BAC4DA /* Views */,
+				0EEE4BDA28E0A72B00BAC4DA /* ViewModel */,
 				0E6EAB3728DB36E40065E478 /* Assets.xcassets */,
-				0E6EAB3C28DB36E40065E478 /* Persistence.swift */,
-				0EE14CAC28DE0E760099D127 /* Photo.swift */,
-				0E4414AB28DE55C700E9B89A /* UserLocationManager.swift */,
-				0EE14CAE28DE12B70099D127 /* PhotoView.swift */,
-				0EE14CB028DE144E0099D127 /* CameraView.swift */,
-				0E6EAB3E28DB36E40065E478 /* Eureka.xcdatamodeld */,
+				0EEE4BD828E0A6FF00BAC4DA /* Model */,
+				0EEE4BDB28E0A73600BAC4DA /* Services */,
 				0E6EAB3928DB36E40065E478 /* Preview Content */,
 			);
 			path = Eureka;
@@ -132,6 +130,42 @@
 				0E6EAB4928DB36E40065E478 /* EUPhotosViewModelTests.swift */,
 			);
 			path = EurekaTests;
+			sourceTree = "<group>";
+		};
+		0EEE4BD828E0A6FF00BAC4DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0E6EAB3C28DB36E40065E478 /* Persistence.swift */,
+				0EE14CAC28DE0E760099D127 /* Photo.swift */,
+				0E6EAB3E28DB36E40065E478 /* Eureka.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0EEE4BD928E0A71700BAC4DA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0E6EAB3528DB36E30065E478 /* ContentView.swift */,
+				0EE14CAE28DE12B70099D127 /* PhotoView.swift */,
+				0EE14CB028DE144E0099D127 /* CameraView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0EEE4BDA28E0A72B00BAC4DA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0EE14CB228DE15340099D127 /* EUPhotosViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0EEE4BDB28E0A73600BAC4DA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0E4414AB28DE55C700E9B89A /* UserLocationManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -432,12 +466,12 @@
 				DEVELOPMENT_TEAM = 2JM5RQ28LQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Eureka/Info.plist;
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "Camera used to take pictures";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Your current locaiton will be used when this app is active";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location will be stored when the app is active";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -464,12 +498,12 @@
 				DEVELOPMENT_TEAM = 2JM5RQ28LQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Eureka/Info.plist;
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "Camera used to take pictures";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Your current locaiton will be used when this app is active";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location will be stored when the app is active";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
