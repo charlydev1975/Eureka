@@ -21,6 +21,14 @@ The project architecture selected was MVVM:
  
  Download the project / fork it, and plug in your phone to install the project and use the camera.
  
+ ## Usage
+ 
+ As the project requested it contains:
+ - It contains a Launch / Splash screen (that can be improved drammatically)
+ - The projects contain a button that will be active only when the gps module is working and a location is availlable, which will take the user to the camera
+ - The picture will be taken and saved to CoreData and displayed in the main screen.
+ - By clicking in the image the user can see it with more detail, with the respective image coordinates.
+ 
 ## Notes
 
 It is impossible to make a project like this in 48 hs having a job and other responsibilities. Currently there were a ton of fires in my job and it took me a lot of time from it. There are a lot of things more to test and improve (icons, remove the singleton from the UserLocationManager, error handling, uitests, ICONS and IMAGES!!!, etc). As a side note, the CI is failing due to the inhability to work with XCode 14.0 in a saved version. I took a CI from another project and it was working fine, but it does not supports the current project scheme. Using Fastlane will be an overkill for it, and besides I don't have the time to make it work. There's a software that Pinterest (I work as staff augmentation there) installs on my phone/mac preventing me to install any 3rd party developer software on it, so I could not test fully the camera.
