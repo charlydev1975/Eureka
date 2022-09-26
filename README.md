@@ -23,7 +23,7 @@ The project architecture selected was MVVM:
  
  Download the project / fork it, and plug in your phone to install the project and use the camera.
  If you want to run the code it was done using XCode 14.0 and tested it in an iPhone 14 Pro simulator running iOS 16.0
- If you want you can use Robots and Pencils to have multiple versions of Xcode installed [Pencils and Rotobos](https://github.com/RobotsAndPencils/xcodes)
+ If you want you can use Robots and Pencils to have multiple versions of Xcode installed [Robots and Pencils](https://github.com/RobotsAndPencils/xcodes)
    
  
  ## Usage
