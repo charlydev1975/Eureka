@@ -33,11 +33,10 @@ struct ContentView: View {
                     .padding()
                 }
                 Spacer()
-                NavigationLink(destination:CameraView(handleImagePicked: {image in handleImagePickedFromCamera(image)}),
-                               isActive: $isCameraPresented) {
+                NavigationLink(destination:CameraView(handleImagePicked: {image in handleImagePickedFromCamera(image)}), isActive: $isCameraPresented) {
                     Text("Take Picture")
                 }
-                .disabled(!userLocationManager.isCurrentLocationAvaillable)
+                .disabled(!userLocationManager.isCurrentLocationAvaillable && CameraView.isAvaillable)
             }
         }
     }
@@ -45,8 +44,11 @@ struct ContentView: View {
     func handleImagePickedFromCamera(_ image:UIImage?) {
         if let compressedImageData = image?.jpegData(compressionQuality: 1.0) {
             if let tuple = userLocationManager.currentLocation {
+                isCameraPresented = false
                 euPhotosViewModel.addPhoto(withImageData: compressedImageData, latitude: tuple.latitude, longitude: tuple.longitude)
             }
+        } else {
+            isCameraPresented = false
         }
     }
 }
