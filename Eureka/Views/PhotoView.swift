@@ -26,13 +26,17 @@ struct PhotoView: View {
     }
     var body: some View {
         if (inSinglePhotoMode) {
-            Image(uiImage: image)
-                .resizable()
-                .aspectRatio(4/3, contentMode: .fit)
-                .padding()
-            Spacer()
-            Text("Latitude: \(photo.latitude ?? "")")
-            Text("Longitude: \(photo.longitude ?? "")")
+            VStack {
+                Image(uiImage: image)
+                    .resizable()
+                    .aspectRatio(4/3, contentMode: .fit)
+                    .padding()
+                Spacer()
+                Text("Latitude: \(photo.latitude ?? "")")
+                    .padding(5)
+                Text("Longitude: \(photo.longitude ?? "")")
+                    .padding(5)
+            }
         } else {
             Image(uiImage: image)
                 .resizable()
