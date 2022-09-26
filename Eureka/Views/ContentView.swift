@@ -25,7 +25,7 @@ struct ContentView: View {
                 ScrollView {
                     LazyVGrid(columns: [GridItem(), GridItem(), GridItem()]) {
                         ForEach(euPhotosViewModel.photos) { photo in
-                            NavigationLink(destination:PhotoView(photo: photo, inSinglePhotoMode: true), isActive: $isPhotoPresented) {
+                            NavigationLink(destination:PhotoView(photo: photo, inSinglePhotoMode: true)) {
                                 PhotoView(photo: photo, inSinglePhotoMode: false)
                             }
                         }
