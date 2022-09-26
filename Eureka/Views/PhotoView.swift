@@ -13,18 +13,21 @@ struct PhotoView: View {
     let image:UIImage
     let inSinglePhotoMode:Bool
     let photo:Photo
-    
-    
+    /*
+        I like to reuse my views as much as possible, this is why I pass an extra
+        param to the init to show the view in the correct way depending in the use
+        case.
+     */
     init(photo: Photo, inSinglePhotoMode:Bool) {
         self.inSinglePhotoMode = inSinglePhotoMode
         self.photo = photo
+        /*
+            Below we are showing 2 different images, in case there is no data stored we are showing a no-image-icon.
+            If the data used to show the image is or was corrupted ak the image could not be constructed we are showing
+            the corrupted-file image.
+         */
         if let photoImageData = photo.imageData {
-            /*  we should change these images and use a kind of logging to show the correct error,
-                but time is an enemy and we are showing the same pic in any of these cases (nil data
-                coming from photo.imageData or an error in the creating of the image with photoImageData
-                shown with nil coalescing).
-             */
-            self.image = UIImage(data: photoImageData) ?? UIImage(imageLiteralResourceName: "no-image-icon")
+            self.image = UIImage(data: photoImageData) ?? UIImage(imageLiteralResourceName: "corrupted-file")
         } else {
             self.image = UIImage(imageLiteralResourceName: "no-image-icon")
         }
