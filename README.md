@@ -10,7 +10,10 @@ The project architecture selected was MVVM:
 
 ### Testing
 
-68.8 % of code coverage is a huge lie. We are only testing 1 of the View models, the one that could break and make a mess in the app. We should also test the errors that can happen when we would not load the store / when there was an error saving, etc. We are only printing messages.
+68.8 % of code coverage is a bad guidance for testing. The tests should be written to test the places were the code can break the app. We are only testing 1 of the View models. We should also test the errors that can happen when we would not load the store / when there was an error saving, etc.
+
+### Error handling
+ We are only printing messages, which is really bad. We're not logging/showing messages, so the user has no idea if something goes wrong.
  
  ## My Code
  
