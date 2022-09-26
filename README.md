@@ -10,19 +10,21 @@ The project architecture selected was MVVM:
 
 ### Testing
 
-68.8 % of code coverage is a bad guidance for testing. The tests should be written to test the places were the code can break the app. We are only testing 1 of the View models. We should also test the errors that can happen when we would not load the store / when there was an error saving, etc.
+68.8 % of code coverage is a bad guidance for testing. The tests should be written to test the correct behavior of the written code. We are only testing 1 of the View models. We should also test the errors that can happen when we would not load the store / when there was an error saving, etc. As said before time is an enemy so we cannot add all that functionality.
 
 ### Error handling
  We are only printing messages, which is really bad. We're not logging/showing messages, so the user has no idea if something goes wrong.
  
  ## My Code
  
- I don't like to add a ton of functionality to classes, they should have only 1 functionality (Single responsability principle)
- Also I like to modularize my code to test it. I don't like adding a lot of comments to my code, it should be self explanatory.
+ I don't like to add a ton of functionality to classes, they should have only 1 functionality (Single responsability principle). Testing is a must, besides ensuring the correct behavior of the written code, unit testing provides the benefit of having to make the code testable, this means breaking the code in pieces that can be tested. In that case if we have a bug we can tackle it in an isolated piece of code and solve it much faster. I like to test using AAA, it is the most straight forward and easy way to test. I don't like adding a lot of comments to my code, it should be self explanatory.
  
  ## Installing
  
  Download the project / fork it, and plug in your phone to install the project and use the camera.
+ If you want to run the code it was done using XCode 14.0 and tested it in an iPhone 14 Pro simulator running iOS 16.0
+ If you want you can use Robots and Pencils to have multiple versions of Xcode installed [Pencils and Rotobos](https://github.com/RobotsAndPencils/xcodes)
+   
  
  ## Usage
  

@@ -24,6 +24,9 @@ class UserLocationManager: NSObject, CLLocationManagerDelegate, ObservableObject
         self.locationManager.distanceFilter = 10 // kcll
         self.locationManager.requestWhenInUseAuthorization()
     }
+   
+    
+    //MARK: - Intents
     
     func startGettingLocatoin() {
         self.locationManager.startUpdatingLocation()
@@ -33,7 +36,9 @@ class UserLocationManager: NSObject, CLLocationManagerDelegate, ObservableObject
         self.locationManager.stopUpdatingLocation()
     }
     
-    // MARK: CLLocationManagerDelegate
+    
+    // MARK: - CLLocationManagerDelegate
+    
      func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             DispatchQueue.main.async {

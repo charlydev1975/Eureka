@@ -46,7 +46,7 @@ class EUPhotosViewModelTests: XCTestCase {
         XCTAssertEqual(sut.photos.count, 3, "The count of objects should be 3 but it was not")
     }
     
-    func test_EUPhotosViewModel_add3ElementsToStore_sutPhotosArrayShouldNotifyChanges() {
+    func test_EUPhotosViewModel_add3ElementsToStore_sutPhotosArrayPublisherShouldPublishChanges() {
         var cancellables = Set<AnyCancellable>()
         for _ in 0..<3 {
             let imageData = UIImage(imageLiteralResourceName: "no-image-icon").pngData()!
@@ -58,6 +58,27 @@ class EUPhotosViewModelTests: XCTestCase {
         let expectation = expectation(description: "When the store is filled with a value the changes should be notified")
         sut.$photos
             .sink { _ in
+                expectation.fulfill()
+            }
+            .store(in: &cancellables)
+        
+        // full fill the expectation when the notification was sent
+        waitForExpectations(timeout: 0.5)
+    }
+    
+    func test_EUPhotosViewModel_add3ElementsToStore_sutPhotosArrayShould() {
+        var cancellables = Set<AnyCancellable>()
+        for _ in 0..<3 {
+            let imageData = UIImage(imageLiteralResourceName: "no-image-icon").pngData()!
+            let latitude = "a-latitude"
+            let longitude = "a-longitude"
+            sut.addPhoto(withImageData: imageData, latitude: latitude, longitude: longitude)
+        }
+        
+        let expectation = expectation(description: "When the store is filled with a value the changes should be notified")
+        sut.$photos
+            .sink { values in
+                print(values)
                 expectation.fulfill()
             }
             .store(in: &cancellables)
