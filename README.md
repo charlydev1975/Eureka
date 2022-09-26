@@ -31,7 +31,7 @@ The number 68.8 % of code coverage is a bad guidance for testing. The tests shou
  
  As the project requested it contains:
  - It contains a Launch / Splash screen (that can be improved drammatically)
- - The projects contain a button that will be active only when the gps module is working and a location is availlable, which will take the user to the camera
+ - The projects contain a button that will be active only when the gps module is working and a location is availlable and the camera is availlable too, which will take the user to the camera
  - The picture will be taken and saved to CoreData and displayed in the main screen.
  - By clicking in the image the user can see it with more detail, with the respective image coordinates.
  
