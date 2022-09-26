@@ -10,7 +10,7 @@ The project architecture selected was MVVM:
 
 ### Testing
 
-68.8 % of code coverage is a huge lie. We are only testing 1 of the View models, the one that could break and make a mess in the app. We should also test the errors that can happen when we would not load the store / when there was an error saving, etc. We are only printing messages. I don't know how to test the views in swiftui, I could test them with UIKit.
+68.8 % of code coverage is a huge lie. We are only testing 1 of the View models, the one that could break and make a mess in the app. We should also test the errors that can happen when we would not load the store / when there was an error saving, etc. We are only printing messages.
  
  ## My Code
  
