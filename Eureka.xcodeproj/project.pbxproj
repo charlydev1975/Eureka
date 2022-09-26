@@ -461,7 +461,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Eureka/Info.plist;
-				INFOPLIST_KEY_NSCalendarsUsageDescription = "Camera used to take pictures";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera used to take pictures";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Your current locaiton will be used when this app is active";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location will be stored when the app is active";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -493,7 +493,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Eureka/Info.plist;
-				INFOPLIST_KEY_NSCalendarsUsageDescription = "Camera used to take pictures";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera used to take pictures";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Your current locaiton will be used when this app is active";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location will be stored when the app is active";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
