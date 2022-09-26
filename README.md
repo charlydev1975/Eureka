@@ -4,13 +4,14 @@
 
 The project architecture selected was MVVM:
 
-1. Model. We understand tha the model consists on the persistant layer of the project and the abbility to save to the store (Core Data - SQLite). We simply created a helper object to be displayed by SwiftUI since showing Core Data properties in the View Layer is not the best practice. The Persistence file contains a PersistentController class that we took (& modified) from Apple's default implementation. I contains a shared instance (that is not a Singleton since it can be overridden) to use with the in memory store (very usefull for testing purposes and previews). The model also contains the GPS in the phone, but this is not shown here only in the VM.
+1. Model. We understand tha the model consists on the persistant layer of the project and the location of the image taken. We simply created a helper object to be displayed by SwiftUI since showing Core Data properties in the View Layer is not the best practice. The Persistence file contains a PersistentController class that we took (& modified) from Apple's default implementation. I contains a shared instance (that is not a Singleton since it can be overridden) to use with the in memory store (very usefull for testing purposes and previews). The model also contains the GPS in the phone, but this is not shown here only in the VM.
 2.  View Model. This Layer binds the Model and the View (with a ton of considerations). To support this in a fast way without making a mess, we made 2 of them.  One, to bind the persistent store and the View, and anotherone to bind CoreLocation and the View. The first one to talk to the store contains an NSFetchedResultsController (which was originatelly desinged to talk to a UITableView/UICollectionView) that, with a minor tweak, was hooked to work with the with an ObervableObject/@ObservedObject. It takes an initial fetch and the when the context changes it performs that fetch again showing only the changes that were made to the store (really efficient). The VM also contains a boolean to initialize with an in memory store that is used on previews and testing. The UserLocationManger VM contains the code to bind CoreLocation to the View. Notes: EUPhotosViewModel is an awfull name, it should be called PhotosStoring or something meaningful, the name was given to show the architecture used, UserLocationManager is a better name.
 3. View. This is developped entirelly using and SwiftUI as a the main UIFramework, we only used UIKit to display the camera view.
 
 ### Testing
 
-68.8 % of code coverage is a bad guidance for testing. The tests should be written to test the correct behavior of the written code. We are only testing 1 of the View models. We should also test the errors that can happen when we would not load the store / when there was an error saving, etc. As said before time is an enemy so we cannot add all that functionality.
+
+The number 68.8 % of code coverage is a bad guidance for testing. The tests should be written to ensure the correct behavior of the written code or the being written one (TDD). We are only testing 1 of the View models. We should also test the errors that can happen when we would not load the store / when there was an error saving, etc. As said before time is an enemy so we cannot add all that functionality.
 
 ### Error handling
  We are only printing messages, which is really bad. We're not logging/showing messages, so the user has no idea if something goes wrong.
@@ -36,7 +37,7 @@ The project architecture selected was MVVM:
  
 ## Notes
 
-It is impossible to make a project like this in 48 hs having a job and other responsibilities. Currently there were a ton of fires in my job and it took me a lot of time from it. There are a lot of things more to test and improve (icons, remove the singleton from the UserLocationManager, error handling, uitests, ICONS and IMAGES!!!, etc). 
+It is impossible to make a project like this in 48 hs having a job and other responsibilities. Currently there were a ton of fires in my job and it took me a lot of time from it. There are a lot of things more to test and improve (remove the singleton from the UserLocationManager, error handling, uitests, **ICONS and IMAGES!!!**, etc). 
 
 ### Project Notes
 Currently when the tests run (and pass) we see a warning in the console related to core data. This is because we are creating the store multiple times. If you want to get more insight about the error this [link](https://stackoverflow.com/questions/51851485/multiple-nsentitydescriptions-claim-nsmanagedobject-subclass) provides you more data on it.
