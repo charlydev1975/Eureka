@@ -21,7 +21,7 @@ class EUPhotosViewModel:NSObject, ObservableObject, NSFetchedResultsControllerDe
         let initialFetchRequest = NSFetchRequest<EUPhoto>(entityName: "EUPhoto")
         initialFetchRequest.sortDescriptors = []
         self.context = inMemoryModel ? PersistenceController(inMemory: true).container.viewContext :
-                                      PersistenceController.shared.container.viewContext
+                                       PersistenceController.shared.container.viewContext
         
         self.fetchedResultsController = NSFetchedResultsController(fetchRequest: initialFetchRequest,
                                                                    managedObjectContext: self.context,

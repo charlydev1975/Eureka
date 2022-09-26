@@ -19,6 +19,11 @@ struct PhotoView: View {
         self.inSinglePhotoMode = inSinglePhotoMode
         self.photo = photo
         if let photoImageData = photo.imageData {
+            /*  we should change these images and use a kind of logging to show the correct error,
+                but time is an enemy and we are showing the same pic in any of these cases (nil data
+                coming from photo.imageData or an error in the creating of the image with photoImageData
+                shown with nil coalescing).
+             */
             self.image = UIImage(data: photoImageData) ?? UIImage(imageLiteralResourceName: "no-image-icon")
         } else {
             self.image = UIImage(imageLiteralResourceName: "no-image-icon")

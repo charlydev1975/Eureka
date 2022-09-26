@@ -55,6 +55,7 @@
 		0EE14CB028DE144E0099D127 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		0EE14CB228DE15340099D127 /* EUPhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EUPhotosViewModel.swift; sourceTree = "<group>"; };
 		0EEE4BDC28E0AC7D00BAC4DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0EEE4BDD28E1254D00BAC4DA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +86,7 @@
 		0E6EAB2728DB36E30065E478 = {
 			isa = PBXGroup;
 			children = (
+				0EEE4BDD28E1254D00BAC4DA /* README.md */,
 				0E6EAB3228DB36E30065E478 /* Eureka */,
 				0E6EAB4828DB36E40065E478 /* EurekaTests */,
 				0E6EAB3128DB36E30065E478 /* Products */,
@@ -110,7 +112,6 @@
 				0EEE4BDA28E0A72B00BAC4DA /* ViewModel */,
 				0E6EAB3728DB36E40065E478 /* Assets.xcassets */,
 				0EEE4BD828E0A6FF00BAC4DA /* Model */,
-				0EEE4BDB28E0A73600BAC4DA /* Services */,
 				0E6EAB3928DB36E40065E478 /* Preview Content */,
 			);
 			path = Eureka;
@@ -156,16 +157,9 @@
 			isa = PBXGroup;
 			children = (
 				0EE14CB228DE15340099D127 /* EUPhotosViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		0EEE4BDB28E0A73600BAC4DA /* Services */ = {
-			isa = PBXGroup;
-			children = (
 				0E4414AB28DE55C700E9B89A /* UserLocationManager.swift */,
 			);
-			path = Services;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
