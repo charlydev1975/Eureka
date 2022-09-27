@@ -11,7 +11,7 @@ The project architecture selected was MVVM:
 ### Testing
 
 
-The number 68.8 % of code coverage is a bad guidance for testing. The tests should be written to ensure the correct behavior of the written code or the being written one (TDD). We are only testing 1 of the View models. We should also test the errors that can happen when we would not load the store / when there was an error saving, etc. As said before time is an enemy so we cannot add all that functionality.
+The number 73.9 % of code coverage is a bad guidance for testing. The tests should be written to ensure the correct behavior of the written code or the being written one (TDD). We are only testing 1 of the View models. We should also test the errors that can happen when we would not load the store / when there was an error saving, etc. As said before time is an enemy so we cannot add all that functionality.
 
 ### Error handling
  We are only printing messages, which is really bad. We're not logging/showing messages, so the user has no idea if something goes wrong.
