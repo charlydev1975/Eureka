@@ -13,7 +13,6 @@ struct ContentView: View {
     @ObservedObject private var userLocationManager = UserLocationManager.sharedManager
     
     @State private var isCameraPresented = false
-    @State private var isPhotoPresented = false
     
     init(euPhotosViewModel:EUPhotosViewModel) {
         self.euPhotosViewModel = euPhotosViewModel
@@ -42,13 +41,10 @@ struct ContentView: View {
     }
     
     func handleImagePickedFromCamera(_ image:UIImage?) {
-        if let compressedImageData = image?.jpegData(compressionQuality: 1.0) {
-            if let tuple = userLocationManager.currentLocation {
-                isCameraPresented = false
+        isCameraPresented = false
+        if let compressedImageData = image?.jpegData(compressionQuality: 1.0),
+           let tuple = userLocationManager.currentLocation {
                 euPhotosViewModel.addPhoto(withImageData: compressedImageData, latitude: tuple.latitude, longitude: tuple.longitude)
-            }
-        } else {
-            isCameraPresented = false
         }
     }
 }

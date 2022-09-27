@@ -15,7 +15,7 @@ class UserLocationManager: NSObject, CLLocationManagerDelegate, ObservableObject
     private var locationManager = CLLocationManager()
     
     @Published var isCurrentLocationAvaillable = false
-    @Published var currentLocation: (latitude:String, longitude:String)?
+    var currentLocation: (latitude:String, longitude:String)?
     
     private override init() {
         super.init()

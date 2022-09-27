@@ -65,26 +65,4 @@ class EUPhotosViewModelTests: XCTestCase {
         // full fill the expectation when the notification was sent
         waitForExpectations(timeout: 0.5)
     }
-    
-    func test_EUPhotosViewModel_add3ElementsToStore_sutPhotosArrayShould() {
-        var cancellables = Set<AnyCancellable>()
-        for _ in 0..<3 {
-            let imageData = UIImage(imageLiteralResourceName: "no-image-icon").pngData()!
-            let latitude = "a-latitude"
-            let longitude = "a-longitude"
-            sut.addPhoto(withImageData: imageData, latitude: latitude, longitude: longitude)
-        }
-        
-        let expectation = expectation(description: "When the store is filled with a value the changes should be notified")
-        sut.$photos
-            .sink { values in
-                print(values)
-                expectation.fulfill()
-            }
-            .store(in: &cancellables)
-        
-        // full fill the expectation when the notification was sent
-        waitForExpectations(timeout: 0.5)
-    }
-            
 }
