@@ -24,7 +24,7 @@ The number 68.8 % of code coverage is a bad guidance for testing. The tests shou
  
  Download the project / fork it, and plug in your phone to install the project and use the camera.
  If you want to run the code it was done using XCode 14.0 and tested it in an iPhone 14 Pro simulator running iOS 16.0
- If you want you can use [Robots and Pencils](https://github.com/RobotsAndPencils/xcodes) to have multiple versions of Xcode installed.
+ If you want, you can use [Robots and Pencils](https://github.com/RobotsAndPencils/xcodes) to have multiple versions of Xcode installed.
    
  
  ## Usage
