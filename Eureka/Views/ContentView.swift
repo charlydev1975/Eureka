@@ -10,12 +10,14 @@ import SwiftUI
 struct ContentView: View {
     
     @ObservedObject private var euPhotosViewModel:EUPhotosViewModel
-    @ObservedObject private var userLocationManager = UserLocationManager.sharedManager
+    // TODO: I know we should create a view model and link it to the view, but no time for now.
+    private var locatoinService:UserLocationService
     
     @State private var isCameraPresented = false
     
-    init(euPhotosViewModel:EUPhotosViewModel) {
+    init(euPhotosViewModel:EUPhotosViewModel, location: UserLocationService) {
         self.euPhotosViewModel = euPhotosViewModel
+        self.locatoinService = location
     }
 
     var body: some View {
@@ -35,16 +37,24 @@ struct ContentView: View {
                 NavigationLink(destination:CameraView(handleImagePicked: {image in handleImagePickedFromCamera(image)}), isActive: $isCameraPresented) {
                     Text("Take Picture")
                 }
-                .disabled(!userLocationManager.isCurrentLocationAvaillable && CameraView.isAvaillable)
+                .disabled(!CameraView.isAvaillable)
             }
         }
     }
     
     func handleImagePickedFromCamera(_ image:UIImage?) {
         isCameraPresented = false
-        if let compressedImageData = image?.jpegData(compressionQuality: 1.0),
-           let tuple = userLocationManager.currentLocation {
-                euPhotosViewModel.addPhoto(withImageData: compressedImageData, latitude: tuple.latitude, longitude: tuple.longitude)
+        // if we took the pic
+        if let compressedImageData = image?.jpegData(compressionQuality: 1.0) {
+            locatoinService.getCurrentLocation(completion: { location in
+                // if we got the location
+                // then we save through the view model
+                euPhotosViewModel.addPhoto(withImageData: compressedImageData,
+                                           latitude: "\(location.coordinate.latitude)",
+                                           longitude: "\(location.coordinate.longitude)") })
+        } else {
+            isCameraPresented = false
+            // we should show some kind of error according to what went wrong, but we should do it before
         }
     }
 }
@@ -60,6 +70,6 @@ struct ContentView_Previews: PreviewProvider {
             let longitude = "a-longitude"
             viewModel.addPhoto(withImageData: imageData, latitude: latitude, longitude: longitude)
         }
-        return ContentView(euPhotosViewModel: viewModel)
+        return ContentView(euPhotosViewModel: viewModel, location: UserLocationService())
     }
 }
