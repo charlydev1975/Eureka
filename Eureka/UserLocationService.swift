@@ -24,15 +24,12 @@ class UserLocationService: NSObject, CLLocationManagerDelegate, UserLocationServ
         super.init()
         self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         self.locationManager.locationManagerDelegate = self
+        self.locationManager.requestWhenInUseAuthorization()
     }
     
     func getCurrentLocation(completion:@escaping (CLLocation) -> ()) {
-        
         currentLocation = { location in completion(location) }
         self.locationManager.requestLocation()
-        self.locationManager.requestWhenInUseAuthorization()
-        
-
     }
     
     // MARK: - Location manager delegate
