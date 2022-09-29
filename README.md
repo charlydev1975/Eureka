@@ -12,14 +12,14 @@ The project architecture selected was MVVM:
 ### Testing
 
 
-The number 73.9 % of code coverage is a bad guidance for testing. The tests should be written to ensure the correct behavior of the written code or the being written one (TDD). We are only testing 1 of the View models. We should also test the errors that can happen when we would not load the store / when there was an error saving, etc. As said before time is an enemy so we cannot add all that functionality.
+The number 71.3 % of code coverage is a bad guidance for testing. The purpose of tests is to ensure the correct behavior of the code or the being written one (TDD). We are only testing 1 of the View models. We should also test the errors that can happen when we would not load the store / when there was an error saving, etc. As said before time is an enemy so we cannot add all that functionality.
 
 ### Error handling
  We are only printing messages, which is really bad. We're not logging/showing messages, so the user has no idea if something goes wrong.
  
  ## My Code
  
- I don't like to add a ton of functionality to classes, they should have only 1 functionality (Single responsability principle). Testing is a must, besides ensuring the correct behavior of the written code, unit testing provides the benefit of having to make the code testable, this means breaking the code in pieces that can be tested. In that case if we have a bug we can tackle it in an isolated piece of code and solve it much faster. I like to test using AAA, it is the most straight forward and easy way to test. I don't like adding a lot of comments to my code, it should be self explanatory.
+ I don't like to add a ton of functionality to classes, they should have only 1 functionality (Single responsability principle). Testing is a must, besides ensuring the correct behavior of the written code, unit testing provides the benefit of having to make the code "testable", this means breaking the code in pieces that can be tested. In that case if we have a bug we can tackle it in an isolated piece of code and solve it much faster (most of the times). I like to test using AAA, it is the most straight forward and easy way to test. I don't like adding a lot of comments to my code, it should be self explanatory.
  
  ## Installing
  
