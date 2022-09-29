@@ -1,5 +1,5 @@
 //
-//  CLLocationManager+LocationManagerInterfaceAdditions.swift
+//  CLLocationManager+UserLocationManagerInterface.swift
 //  Eureka
 //
 //  Created by Carlos Caraccia on 9/28/22.
