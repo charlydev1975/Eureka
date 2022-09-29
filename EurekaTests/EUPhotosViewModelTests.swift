@@ -11,7 +11,7 @@ import Combine
 
 @testable import Eureka
 
-class EUPhotosViewModelTests: XCTestCase {
+final class EUPhotosViewModelTests: XCTestCase {
     
     var sut:EUPhotosViewModel!
     

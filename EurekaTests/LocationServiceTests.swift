@@ -10,17 +10,15 @@ import CoreLocation
 
 @testable import Eureka
 
- class LocationServiceTests: XCTestCase {
+ final class LocationServiceTests: XCTestCase {
 
      func test_locationSerive_requestedLocationIsLatitude125Longitude125_ShouldReturnLatitude125Longitude125() {
         
-        var locationManagerMock = UserLocationServiceMock()
+        var cLLocationManager = CLLocationManagerMock()
 
-        locationManagerMock.locationToReturn = {
-            return CLLocation(latitude: 125.0, longitude: 125.0)
-        }
+         cLLocationManager.locationToReturn = { return CLLocation(latitude: 125.0, longitude: 125.0) }
          
-        let sut = UserLocationService(locationManager: locationManagerMock)
+        let sut = UserLocationService(locationManager: cLLocationManager)
 
         let expectedCoordinate = CLLocation(latitude: 125.0, longitude: 125.0)
         let expactation = expectation(description: "Expectation that will be fulfilled if the location is returned.")
@@ -31,5 +29,7 @@ import CoreLocation
             XCTAssertEqual(location.coordinate.longitude, expectedCoordinate.coordinate.longitude, "The locations longitude should be the same as the desired one, but it was not")
         }
         
-        wait(for: [expactation], timeout: 3.0)    }
+        wait(for: [expactation], timeout: 3.0)
+         
+     }
 }

@@ -1,5 +1,5 @@
 //
-//  UserLocationServiceMock.swift
+//  LocationManagerMock.swift
 //  EurekaTests
 //
 //  Created by Carlos Caraccia on 9/28/22.
@@ -10,7 +10,7 @@
 import Foundation
 import CoreLocation
 
-struct UserLocationServiceMock: UserLocationManagerInterface {
+struct CLLocationManagerMock: CLLocationManagerInterface {
     
     var locationManagerDelegate: UserLocationServiceDelegate?
 
