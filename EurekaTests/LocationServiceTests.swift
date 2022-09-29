@@ -14,11 +14,11 @@ import CoreLocation
 
      func test_locationSerive_requestedLocationIsLatitude125Longitude125_ShouldReturnLatitude125Longitude125() {
         
-        var cLLocationManager = CLLocationManagerMock()
+        var cLLocationManagerMock = CLLocationManagerMock()
 
-         cLLocationManager.locationToReturn = { return CLLocation(latitude: 125.0, longitude: 125.0) }
+         cLLocationManagerMock.locationToReturn = { return CLLocation(latitude: 125.0, longitude: 125.0) }
          
-        let sut = UserLocationService(locationManager: cLLocationManager)
+        let sut = UserLocationService(locationManager: cLLocationManagerMock)
 
         let expectedCoordinate = CLLocation(latitude: 125.0, longitude: 125.0)
         let expactation = expectation(description: "Expectation that will be fulfilled if the location is returned.")
