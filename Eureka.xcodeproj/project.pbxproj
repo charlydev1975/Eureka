@@ -17,7 +17,7 @@
 		0E70FA9828E450CA00907708 /* UserLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E70FA9728E450CA00907708 /* UserLocationService.swift */; };
 		0E70FA9A28E456BF00907708 /* LocationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E70FA9928E456BF00907708 /* LocationServiceTests.swift */; };
 		0EA4343928E4E54B000C3AF4 /* UserLocationManagerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4343828E4E54B000C3AF4 /* UserLocationManagerInterface.swift */; };
-		0EA4343C28E4E67D000C3AF4 /* CLLocationManager+LocationManagerInterfaceAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4343B28E4E67D000C3AF4 /* CLLocationManager+LocationManagerInterfaceAdditions.swift */; };
+		0EA4343C28E4E67D000C3AF4 /* CLLocationManager+UserLocationManagerInterface+LocationManagerInterfaceAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4343B28E4E67D000C3AF4 /* CLLocationManager+UserLocationManagerInterface+LocationManagerInterfaceAdditions.swift */; };
 		0EA4343F28E4E89E000C3AF4 /* UserLocationServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4343E28E4E89E000C3AF4 /* UserLocationServiceMock.swift */; };
 		0EE14CAD28DE0E760099D127 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE14CAC28DE0E760099D127 /* Photo.swift */; };
 		0EE14CAF28DE12B70099D127 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE14CAE28DE12B70099D127 /* PhotoView.swift */; };
@@ -56,7 +56,7 @@
 		0E70FA9728E450CA00907708 /* UserLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationService.swift; sourceTree = "<group>"; };
 		0E70FA9928E456BF00907708 /* LocationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServiceTests.swift; sourceTree = "<group>"; };
 		0EA4343828E4E54B000C3AF4 /* UserLocationManagerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationManagerInterface.swift; sourceTree = "<group>"; };
-		0EA4343B28E4E67D000C3AF4 /* CLLocationManager+LocationManagerInterfaceAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+LocationManagerInterfaceAdditions.swift"; sourceTree = "<group>"; };
+		0EA4343B28E4E67D000C3AF4 /* CLLocationManager+UserLocationManagerInterface+LocationManagerInterfaceAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+UserLocationManagerInterface+LocationManagerInterfaceAdditions.swift"; sourceTree = "<group>"; };
 		0EA4343E28E4E89E000C3AF4 /* UserLocationServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationServiceMock.swift; sourceTree = "<group>"; };
 		0EE14CAC28DE0E760099D127 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		0EE14CAE28DE12B70099D127 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
@@ -157,7 +157,7 @@
 		0EA4343A28E4E59C000C3AF4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				0EA4343B28E4E67D000C3AF4 /* CLLocationManager+LocationManagerInterfaceAdditions.swift */,
+				0EA4343B28E4E67D000C3AF4 /* CLLocationManager+UserLocationManagerInterface+LocationManagerInterfaceAdditions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -336,7 +336,7 @@
 				0E6EAB3628DB36E30065E478 /* ContentView.swift in Sources */,
 				0EE14CAF28DE12B70099D127 /* PhotoView.swift in Sources */,
 				0EE14CB328DE15340099D127 /* EUPhotosViewModel.swift in Sources */,
-				0EA4343C28E4E67D000C3AF4 /* CLLocationManager+LocationManagerInterfaceAdditions.swift in Sources */,
+				0EA4343C28E4E67D000C3AF4 /* CLLocationManager+UserLocationManagerInterface+LocationManagerInterfaceAdditions.swift in Sources */,
 				0E6EAB3428DB36E30065E478 /* EurekaApp.swift in Sources */,
 				0EE14CAD28DE0E760099D127 /* Photo.swift in Sources */,
 			);
