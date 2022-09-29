@@ -58,7 +58,8 @@ struct ContentView: View {
 }
 
 
-// MARK: Content View Previews
+// MARK: - ContentView Previews
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let euPhotoViewModel = EUPhotosViewModel(inMemoryModel: true)
