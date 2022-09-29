@@ -27,7 +27,6 @@ class EUPhotosViewModel:NSObject, ObservableObject, NSFetchedResultsControllerDe
                                                                    managedObjectContext: self.context,
                                                                    sectionNameKeyPath: nil,
                                                                    cacheName: nil)
-        
         super.init()
         fetchedResultsController.delegate = self
         

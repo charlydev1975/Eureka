@@ -53,6 +53,9 @@ struct PhotoView: View {
     }
 }
 
+
+// MARK: - ContentView Previews
+
 struct PhotoView_Previews: PreviewProvider {
     static var previews: some View {
         PhotoView(photo: Photo(euPhoto: EUPhoto(context: PersistenceController.init(inMemory: true).container.viewContext)), inSinglePhotoMode: true)

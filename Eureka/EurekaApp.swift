@@ -13,8 +13,9 @@ struct EurekaApp: App {
     var body: some Scene {
         WindowGroup {
             let euPhotoViewModel = EUPhotosViewModel(inMemoryModel: false)
-            let location = UserLocationService()
-            ContentView(euPhotosViewModel: euPhotoViewModel, location: location)
+            let locationService = UserLocationService()
+            let locationViewModel = LocationViewModel(locationService: locationService)
+            ContentView(euPhotosViewModel: euPhotoViewModel, locationViewModel: locationViewModel)
         }
     }
 }
