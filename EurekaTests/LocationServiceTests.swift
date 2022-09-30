@@ -31,7 +31,7 @@ import CoreLocation
                      XCTAssertEqual(expectedCoordinate.coordinate.latitude, location.coordinate.latitude)
                  
                 case .failure(let error):
-                    XCTFail(file: "we should never reached this point")
+                    XCTFail("we should never reached this point, we should see no \(error)")
              }
          }
          wait(for: [expactation], timeout: 0.05)
@@ -51,7 +51,7 @@ import CoreLocation
              XCTAssertNotNil(result, "We expected result not to be nil but it was")
              switch result {
                  case .success(let location):
-                     XCTFail("we should never reach this point")
+                     XCTFail("we should never reach this point we should see no \(location)")
                  
                 case .failure(let newError):
                     XCTAssertNotNil(newError)
