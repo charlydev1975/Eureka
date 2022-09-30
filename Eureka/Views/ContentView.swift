@@ -17,7 +17,7 @@ struct ContentView: View {
     @State private var isCameraPresented = false
     @State private var isErrorPresented = false
     
-    @State private var locationError:Error?
+    @State private var locationError:NSError?
     
     init(euPhotosViewModel:EUPhotosViewModel, locationViewModel: LocationViewModel) {
         self.euPhotosViewModel = euPhotosViewModel
@@ -44,7 +44,7 @@ struct ContentView: View {
                 }
                 .disabled(!CameraView.isAvaillable)
             }
-            .alert("Error: \(locationError?.localizedDescription ?? "")", isPresented: $isErrorPresented) {
+            .alert("Error domain: \(locationError?.domain ?? ""), code: \(locationError?.code ?? 00) ", isPresented: $isErrorPresented) {
                 Button("Dismiss") {
                     isErrorPresented = false
                 }
@@ -65,7 +65,6 @@ struct ContentView: View {
                                                latitude: stringedLocation.latitude,
                                                longitude: stringedLocation.longitude)
                 case .failure(let error):
-                    // dispaly error with @state
                     self.locationError = error as NSError
                     self.isErrorPresented = true
                     break
