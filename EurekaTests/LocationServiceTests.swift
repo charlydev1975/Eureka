@@ -22,14 +22,44 @@ import CoreLocation
 
         let expectedCoordinate = CLLocation(latitude: 125.0, longitude: 125.0)
         let expactation = expectation(description: "Expectation that will be fulfilled if the location is returned.")
+         sut.getCurrentLocation { result in
+             expactation.fulfill()
+             XCTAssertNotNil(result, "We expected result not to be nil but it was")
+             switch result {
+                 case .success(let location):
+                     XCTAssertNotNil(location, "The location should not be nil but it was")
+                     XCTAssertEqual(expectedCoordinate.coordinate.latitude, location.coordinate.latitude)
+                 
+                case .failure(let error):
+                    XCTAssertNil(error)
+             }
+         }
+         wait(for: [expactation], timeout: 0.05)
+     }
+     
+     func test_locationService_requestsLocationAnErrorOccurs_AnErrorShouldBeReturned() {
+         var cLLocationManagerMock = CLLocationManagerMock()
+         let error = NSError(domain: "com.error", code: 66)
+         cLLocationManagerMock.errorToReturn = error
 
-        sut.getCurrentLocation { (location) in
-            expactation.fulfill()
-            XCTAssertEqual(location.coordinate.latitude, expectedCoordinate.coordinate.latitude, "The locations latitude should be the same as the desired one, but it was not")
-            XCTAssertEqual(location.coordinate.longitude, expectedCoordinate.coordinate.longitude, "The locations longitude should be the same as the desired one, but it was not")
-        }
-        
-        wait(for: [expactation], timeout: 3.0)
-         
+         let sut = UserLocationService(locationManager: cLLocationManagerMock)
+
+         let expactation = expectation(description: "Expectation that will be fulfilled if the location is returned.")
+
+         sut.getCurrentLocation { result in
+             expactation.fulfill()
+             XCTAssertNotNil(result, "We expected result not to be nil but it was")
+             switch result {
+                 case .success(let location):
+                     XCTAssertNil(location, "The location should be nil but it was")
+                 
+                case .failure(let newError):
+                    XCTAssertNotNil(newError)
+                 XCTAssertEqual((newError as NSError).domain, error.domain)
+             }
+         }
+
+         wait(for: [expactation], timeout: 3.0)
+
      }
 }
