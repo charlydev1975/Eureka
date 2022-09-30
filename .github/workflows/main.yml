@@ -26,4 +26,4 @@ jobs:
       - name: Show availlable destinations
         run:  xcodebuild -project Eureka.xcodeproj -scheme Eureka -showdestinations
       - name: Clean Build and Test
-        run:  xcodebuild clean test -project Eureka.xcodeproj -scheme Eureka -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=15.2' -enableCodeCoverage YES && exit ${PIPESTATUS[0]}
+        run:  xcodebuild clean test -project Eureka.xcodeproj -scheme Eureka -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=15.2' -enableCodeCoverage YES | xcpretty && exit ${PIPESTATUS[0]}
