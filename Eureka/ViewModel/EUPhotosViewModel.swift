@@ -39,7 +39,7 @@ class EUPhotosViewModel:NSObject, ObservableObject, NSFetchedResultsControllerDe
         }
     }
     
-    // MARK: Intents
+    // MARK: - Intents
     
     /// Function that saves a photo to the database. It works with the view context
     /// - Parameters:
@@ -58,7 +58,9 @@ class EUPhotosViewModel:NSObject, ObservableObject, NSFetchedResultsControllerDe
         }
     }
     
-    // MARK: FetchedResultsControllerDelegate
+    // MARK: - FetchedResultsControllerDelegate
+    
+    
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
        // sync the array with the photos fetched.
         guard let euPhotos = controller.fetchedObjects as? [EUPhoto] else { return }

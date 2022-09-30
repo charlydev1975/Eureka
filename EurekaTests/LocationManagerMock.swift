@@ -17,9 +17,13 @@ struct CLLocationManagerMock: CLLocationManagerInterface {
     var desiredAccuracy: CLLocationAccuracy = 0
 
     var locationToReturn:(()->CLLocation)?
+    var errorToReturn:NSError?
     
     func requestLocation() {
-         guard let location = locationToReturn?() else { return }
+         guard let location = locationToReturn?() else {
+             locationManagerDelegate?.locationFetcher(self, didFailWithError: errorToReturn!)
+             return
+         }
          locationManagerDelegate?.locationFetcher(self, didUpdateLocations: [location])
      }
     

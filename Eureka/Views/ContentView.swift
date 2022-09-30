@@ -7,12 +7,17 @@
 
 import SwiftUI
 
+
+
 struct ContentView: View {
     
     @ObservedObject private var euPhotosViewModel:EUPhotosViewModel
-    @ObservedObject private var locationViewModel:LocationViewModel
+    private var locationViewModel:LocationViewModel
     
     @State private var isCameraPresented = false
+    @State private var isErrorPresented = false
+    
+    @State private var locationError:NSError?
     
     init(euPhotosViewModel:EUPhotosViewModel, locationViewModel: LocationViewModel) {
         self.euPhotosViewModel = euPhotosViewModel
@@ -39,6 +44,11 @@ struct ContentView: View {
                 }
                 .disabled(!CameraView.isAvaillable)
             }
+            .alert("Error domain: \(locationError?.domain ?? ""), code: \(locationError?.code ?? 00) ", isPresented: $isErrorPresented) {
+                Button("Dismiss") {
+                    isErrorPresented = false
+                }
+            }
         }
     }
     
@@ -47,12 +57,21 @@ struct ContentView: View {
         isCameraPresented = false
         // if we took the pic
         if let imageData = image?.jpegData(compressionQuality: 1.0) {
-            euPhotosViewModel.addPhoto(withImageData: imageData,
-                                       latitude: locationViewModel.location?.latitude ?? "latitude",
-                                       longitude: locationViewModel.location?.longitude ?? "longitude")
+            // if we got a valid location
+            guard let location = locationViewModel.location else { return } // we are not handling this error, we should
+                switch location {
+                case .success(let stringedLocation):
+                    euPhotosViewModel.addPhoto(withImageData: imageData,
+                                               latitude: stringedLocation.latitude,
+                                               longitude: stringedLocation.longitude)
+                case .failure(let error):
+                    self.locationError = error as NSError
+                    self.isErrorPresented = true
+                    break
+                }
         } else {
             isCameraPresented = false
-            // we should show some kind of error according to what went wrong, but we should do it before
+            // present problem in converting image error
         }
     }
 }
