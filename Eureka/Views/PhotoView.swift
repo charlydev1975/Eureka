@@ -10,32 +10,21 @@ import CoreData
 
 struct PhotoView: View {
     
-    let image:UIImage
     let inSinglePhotoMode:Bool
-    let photo:Photo
+    let photo:EUPhoto
     /*
         I like to reuse my views as much as possible, this is why I pass an extra
         param to the init to show the view in the correct way depending in the use
         case.
      */
-    init(photo: Photo, inSinglePhotoMode:Bool) {
+    init(photo: EUPhoto, inSinglePhotoMode:Bool) {
         self.inSinglePhotoMode = inSinglePhotoMode
         self.photo = photo
-        /*
-            Below we are showing 2 different images, in case there is no data stored we are showing a no-image-icon.
-            If the data used to show the image is or was corrupted ak the image could not be constructed we are showing
-            the corrupted-file image.
-         */
-        if let photoImageData = photo.imageData {
-            self.image = UIImage(data: photoImageData) ?? UIImage(imageLiteralResourceName: "corrupted-file")
-        } else {
-            self.image = UIImage(imageLiteralResourceName: "no-image-icon")
-        }
     }
     var body: some View {
         if (inSinglePhotoMode) {
             VStack {
-                Image(uiImage: image)
+                Image(uiImage: photo.photoImage)
                     .resizable()
                     .aspectRatio(4/3, contentMode: .fit)
                     .padding()
@@ -46,7 +35,7 @@ struct PhotoView: View {
                     .padding(5)
             }
         } else {
-            Image(uiImage: image)
+            Image(uiImage: photo.photoImage)
                 .resizable()
                 .aspectRatio(4/3, contentMode: .fit)
         }
@@ -58,6 +47,6 @@ struct PhotoView: View {
 
 struct PhotoView_Previews: PreviewProvider {
     static var previews: some View {
-        PhotoView(photo: Photo(euPhoto: EUPhoto(context: PersistenceController.init(inMemory: true).container.viewContext)), inSinglePhotoMode: true)
+        PhotoView(photo: EUPhoto(context: PersistenceController.init(inMemory: true).container.viewContext), inSinglePhotoMode: true)
     }
 }

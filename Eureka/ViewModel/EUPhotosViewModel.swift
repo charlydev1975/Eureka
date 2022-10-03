@@ -10,7 +10,7 @@ import CoreData
 
 class EUPhotosViewModel:NSObject, ObservableObject, NSFetchedResultsControllerDelegate {
     
-    @Published var photos:[Photo] = [Photo]()
+    @Published var photos:[EUPhoto] = [EUPhoto]()
     
     private let fetchedResultsController:NSFetchedResultsController<EUPhoto>
     
@@ -33,7 +33,7 @@ class EUPhotosViewModel:NSObject, ObservableObject, NSFetchedResultsControllerDe
         do {
             try fetchedResultsController.performFetch()
             guard let euPhotos = fetchedResultsController.fetchedObjects else { return }
-            self.photos = euPhotos.map { Photo(euPhoto: $0) }
+            self.photos = euPhotos
         } catch (let error) {
             print(error)
         }
@@ -64,7 +64,7 @@ class EUPhotosViewModel:NSObject, ObservableObject, NSFetchedResultsControllerDe
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
        // sync the array with the photos fetched.
         guard let euPhotos = controller.fetchedObjects as? [EUPhoto] else { return }
-        self.photos = euPhotos.map { Photo(euPhoto: $0) }
+        self.photos = euPhotos
    }
 
 }

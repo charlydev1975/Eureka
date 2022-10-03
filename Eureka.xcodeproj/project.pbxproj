@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0E15CEC428E58337007E6464 /* LocationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E15CEC328E58337007E6464 /* LocationViewModelTests.swift */; };
 		0E15CEC628E58C5E007E6464 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E15CEC528E58C5E007E6464 /* LocationViewModel.swift */; };
+		0E17608128EAF5DE00D8E894 /* EUPhotho+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E17608028EAF5DE00D8E894 /* EUPhotho+Additions.swift */; };
 		0E6EAB3428DB36E30065E478 /* EurekaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6EAB3328DB36E30065E478 /* EurekaApp.swift */; };
 		0E6EAB3628DB36E30065E478 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6EAB3528DB36E30065E478 /* ContentView.swift */; };
 		0E6EAB3828DB36E40065E478 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E6EAB3728DB36E40065E478 /* Assets.xcassets */; };
@@ -21,7 +22,6 @@
 		0EA4343928E4E54B000C3AF4 /* CLLocationManagerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4343828E4E54B000C3AF4 /* CLLocationManagerInterface.swift */; };
 		0EA4343C28E4E67D000C3AF4 /* CLLocationManager+CLLocationManagerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4343B28E4E67D000C3AF4 /* CLLocationManager+CLLocationManagerInterface.swift */; };
 		0EA4343F28E4E89E000C3AF4 /* LocationManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA4343E28E4E89E000C3AF4 /* LocationManagerMock.swift */; };
-		0EE14CAD28DE0E760099D127 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE14CAC28DE0E760099D127 /* Photo.swift */; };
 		0EE14CAF28DE12B70099D127 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE14CAE28DE12B70099D127 /* PhotoView.swift */; };
 		0EE14CB128DE144E0099D127 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE14CB028DE144E0099D127 /* CameraView.swift */; };
 		0EE14CB328DE15340099D127 /* EUPhotosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE14CB228DE15340099D127 /* EUPhotosViewModel.swift */; };
@@ -47,6 +47,7 @@
 /* Begin PBXFileReference section */
 		0E15CEC328E58337007E6464 /* LocationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModelTests.swift; sourceTree = "<group>"; };
 		0E15CEC528E58C5E007E6464 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		0E17608028EAF5DE00D8E894 /* EUPhotho+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EUPhotho+Additions.swift"; sourceTree = "<group>"; };
 		0E6EAB3028DB36E30065E478 /* Eureka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eureka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E6EAB3328DB36E30065E478 /* EurekaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EurekaApp.swift; sourceTree = "<group>"; };
 		0E6EAB3528DB36E30065E478 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -62,7 +63,6 @@
 		0EA4343828E4E54B000C3AF4 /* CLLocationManagerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationManagerInterface.swift; sourceTree = "<group>"; };
 		0EA4343B28E4E67D000C3AF4 /* CLLocationManager+CLLocationManagerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+CLLocationManagerInterface.swift"; sourceTree = "<group>"; };
 		0EA4343E28E4E89E000C3AF4 /* LocationManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerMock.swift; sourceTree = "<group>"; };
-		0EE14CAC28DE0E760099D127 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		0EE14CAE28DE12B70099D127 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		0EE14CB028DE144E0099D127 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		0EE14CB228DE15340099D127 /* EUPhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EUPhotosViewModel.swift; sourceTree = "<group>"; };
@@ -163,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				0EA4343B28E4E67D000C3AF4 /* CLLocationManager+CLLocationManagerInterface.swift */,
+				0E17608028EAF5DE00D8E894 /* EUPhotho+Additions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -179,7 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				0E6EAB3C28DB36E40065E478 /* Persistence.swift */,
-				0EE14CAC28DE0E760099D127 /* Photo.swift */,
 				0E6EAB3E28DB36E40065E478 /* Eureka.xcdatamodeld */,
 			);
 			path = Model;
@@ -335,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EA4343928E4E54B000C3AF4 /* CLLocationManagerInterface.swift in Sources */,
+				0E17608128EAF5DE00D8E894 /* EUPhotho+Additions.swift in Sources */,
 				0E6EAB4028DB36E40065E478 /* Eureka.xcdatamodeld in Sources */,
 				0EE14CB128DE144E0099D127 /* CameraView.swift in Sources */,
 				0E70FA9828E450CA00907708 /* UserLocationService.swift in Sources */,
@@ -345,7 +346,6 @@
 				0EE14CB328DE15340099D127 /* EUPhotosViewModel.swift in Sources */,
 				0EA4343C28E4E67D000C3AF4 /* CLLocationManager+CLLocationManagerInterface.swift in Sources */,
 				0E6EAB3428DB36E30065E478 /* EurekaApp.swift in Sources */,
-				0EE14CAD28DE0E760099D127 /* Photo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
