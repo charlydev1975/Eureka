@@ -11,12 +11,16 @@ import SwiftUI
 
 struct ContentView: View {
     
+    // view models
     @ObservedObject private var euPhotosViewModel:EUPhotosViewModel
     private var locationViewModel:LocationViewModel
     
+    // presentation vars
     @State private var isCameraPresented = false
     @State private var isErrorPresented = false
     
+    // passed objects
+    @State private var pickedImage:UIImage?
     @State private var locationError:NSError?
     
     init(euPhotosViewModel:EUPhotosViewModel, locationViewModel: LocationViewModel) {
@@ -38,9 +42,14 @@ struct ContentView: View {
                     .padding()
                 }
                 Spacer()
-                NavigationLink(destination:CameraView(handleImagePicked: {image in handleImagePickedFromCamera(image)}).onAppear{self.locationViewModel.retrieveLocation()},
+                NavigationLink(destination:CameraView(pickedImage: $pickedImage,
+                                                      isPresented: $isCameraPresented)
+                                                .onAppear{self.locationViewModel.retrieveLocation()},
                                isActive: $isCameraPresented) {
                     Text("Take Picture")
+                        .onTapGesture {
+                            isCameraPresented = true
+                        }
                 }
                 .disabled(!CameraView.isAvaillable)
             }
@@ -49,29 +58,29 @@ struct ContentView: View {
                     isErrorPresented = false
                 }
             }
+            .onChange(of: pickedImage) { newValue in
+                handleImagePickedFromCamera(newValue)
+            }
         }
     }
     
     // this should go somewhere else, but as it is a view we will leave it here
     func handleImagePickedFromCamera(_ image:UIImage?) {
-        isCameraPresented = false
-        // if we took the pic
         if let imageData = image?.jpegData(compressionQuality: 1.0) {
-            // if we got a valid location
             guard let location = locationViewModel.location else { return } // we are not handling this error, we should
                 switch location {
                 case .success(let stringedLocation):
                     euPhotosViewModel.addPhoto(withImageData: imageData,
                                                latitude: stringedLocation.latitude,
                                                longitude: stringedLocation.longitude)
+                    // we can remove this in case of a real image cause the time stamp will differ
+                    pickedImage = nil
                 case .failure(let error):
                     self.locationError = error as NSError
                     self.isErrorPresented = true
-                    break
+                    // we can remove this in case of a real image cause the time stamp will differ
+                    pickedImage = nil
                 }
-        } else {
-            isCameraPresented = false
-            // present problem in converting image error
         }
     }
 }
