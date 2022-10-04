@@ -9,20 +9,17 @@ import SwiftUI
 
 struct CameraView:UIViewControllerRepresentable {
     
-    // communicate with other view
-    var handleImagePicked:(UIImage?) -> ()
-    
-    // show if camera is available
+    @Binding var pickedImage:UIImage?
+    @Binding var isPresented:Bool
+        
     static var isAvaillable:Bool {
         UIImagePickerController.isSourceTypeAvailable(.camera)
     }
 
-    // create interface
     func makeCoordinator() -> Coordinator {
-        Coordinator(handleImagePicked: handleImagePicked)
+        Coordinator(cameraView: self)
     }
     
-    // perform actions
     func makeUIViewController(context: Context) -> UIImagePickerController {
         let picker = UIImagePickerController()
         picker.sourceType = .camera
@@ -35,27 +32,28 @@ struct CameraView:UIViewControllerRepresentable {
         // no - op
     }
     
-    // interface
-    class Coordinator:NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-        
-        // communicate with interface
-        var handleImagePicked:(UIImage?) -> ()
-        
-        init(handleImagePicked:@escaping(UIImage?) -> ()) {
-            self.handleImagePicked = handleImagePicked
-        }
-        
-        // pass a nil image if the user picked no image, if the users cancels nothing will happen since we don't
-        // do any action with a nil image
-        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-            handleImagePicked(nil)
-        }
-        
-        // what to do when the photo was taken
-        func imagePickerController(_ picker: UIImagePickerController,
-                                   didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            handleImagePicked((info[.editedImage] ?? info[.originalImage]) as? UIImage)
-        }
+}
+
+// Coordinator communicates between the swiftui view and the view controller
+class Coordinator:NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    var cameraView:CameraView
+    
+    init(cameraView:CameraView) {
+        self.cameraView = cameraView
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        cameraView.pickedImage = nil
+        cameraView.isPresented = false
+    }
+    
+    // what to do when the photo was taken
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        cameraView.pickedImage = (info[.editedImage] ?? info[.originalImage]) as? UIImage
+        cameraView.isPresented = false
     }
 }
+
 
